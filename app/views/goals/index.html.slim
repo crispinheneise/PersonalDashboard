@@ -4,17 +4,18 @@ table.table
   thead
     tr
       th Name
-      th
-      th
-      th
+      - 0.upto(6).map do |day|
+        th 
+          = day.days.ago.strftime("%A, %d/%m/%Y").downcase
+      
 
   tbody
     - @goals.each do |goal|
       tr
         td = goal.name
-        td = link_to 'Show', goal
-        td = link_to 'Edit', edit_goal_path(goal)
-        td = link_to 'Destroy', goal, data: { confirm: 'Are you sure?' }, method: :delete
+        - 0.upto(6).map do |day|
+            td = get_progress_value_by_date( goal, day.days.ago) 
+
 
 br
 

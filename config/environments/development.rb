@@ -64,7 +64,8 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Automatically inject JavaScript needed for LiveReload
-  config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
+  # config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
+  # config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload, live_reload_port: 8081
 
   # Disable slim template HTML minification in development
   Slim::Engine.set_options pretty: true
