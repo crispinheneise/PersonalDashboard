@@ -4,17 +4,18 @@ table.table
   thead
     tr
       th Name
-      th
-      th
-      th
+      - (0..6).each do |num|
+        th = num.days.ago.strftime('%A')
 
+  // .has-text-success // green
+  // .has-text-danger  // red
   tbody
     - @goals.each do |goal|
       tr
         td = goal.name
-        td = link_to 'Show', goal
-        td = link_to 'Edit', edit_goal_path(goal)
-        td = link_to 'Destroy', goal, data: { confirm: 'Are you sure?' }, method: :delete
+        - (0..6).each do |num|
+          - progress = goal.progresses.find_by(date: num.days.ago)
+          td class=progress_class(progress) = progress_value(progress)
 
 br
 

@@ -66,6 +66,7 @@ group :test do
   gem 'minitest-spec-rails'               # Enables spec syntax in minitest
   gem 'rails-controller-testing'          # Enable extra test methods in controllers.
   gem 'selenium-webdriver'
+  gem 'pry'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -6,10 +6,22 @@ class GoalsTest < ApplicationSystemTestCase
   setup do
     @goal = goals(:one)
   end
+  
+  test 'truth' do
+    assert true
+  end
 
   test 'visiting the index' do
     visit goals_url
     assert_selector 'h1', text: 'Listing goals'
+  end
+  
+  test 'viewing progress on the index' do
+    visit goals_url
+    
+    within_table 'goals' do
+      assert_same 8, actualfind('table th').count
+    end
   end
 
   test 'creating a Goal' do
