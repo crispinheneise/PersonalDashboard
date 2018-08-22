@@ -7,3 +7,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+ 
+goal = Goal.first || Goal.create!(name: "Pushups", benchmark: 20)
+
+(0..6).each do |i|
+  goal.progresses.create(value: (1..40).to_a.sample, date: Time.now - i.days)
+end

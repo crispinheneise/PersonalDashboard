@@ -3,19 +3,28 @@ h1.title Listing goals
 table.table
   thead
     tr
+      th 
       th Name
-      th
-      th
-      th
+      - table_heading.each do |day|
+        th = day[0..2]
 
   tbody
     - @goals.each do |goal|
       tr
+        td = goal.benchmark
         td = goal.name
-        td = link_to 'Show', goal
-        td = link_to 'Edit', edit_goal_path(goal)
-        td = link_to 'Destroy', goal, data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
-= link_to 'New Goal', new_goal_path
+      
+        // .has-text-danger
+        // .has-text-success
+        - progresses_for_last_week(goal).each do |progress|
+          - if progress.nil? || progress.value < goal.benchmark
+            td.has-text-danger = output_progress(progress)
+          - else
+            td.has-text-success = output_progress(progress)
+        
+          
+       
+        
+        
+        
+= link_to 'New Goal', new_goal_path, class: 'button'

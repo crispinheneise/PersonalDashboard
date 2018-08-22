@@ -7,7 +7,7 @@ class GoalsController < ApplicationController
   # GET /goals
   # GET /goals.json
   def index
-    @goals = Goal.all
+    @goals = Goal.includes(:progresses).all
   end
 
   # GET /goals/1

@@ -1,17 +1,21 @@
 # == Schema Information
 #
-# Table name: goals
+# Table name: progresses
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  value      :integer
+#  goal_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  date       :datetime
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  value: 1
+  goal: one
 
 two:
-  name: MyString
+  value: 1
+  goal: two

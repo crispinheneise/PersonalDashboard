@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Value:
+  = @progress.value
+p
+  strong Goal:
+  = @progress.goal
+
+=> link_to 'Edit', edit_progress_path(@progress)
+'|
+=< link_to 'Back', progresses_path

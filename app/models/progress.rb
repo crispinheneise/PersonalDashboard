@@ -1,16 +1,15 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
-# Table name: goals
+# Table name: progresses
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  value      :integer
+#  goal_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  date       :datetime
 #
 
-
-class Goal < ApplicationRecord
-  has_many :progresses
+class Progress < ApplicationRecord
+  belongs_to :goal
 end
