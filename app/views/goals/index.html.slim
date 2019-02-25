@@ -13,10 +13,11 @@ table.table
     - @goals.each do |goal|
       tr
         td = goal.name
-        - (0..6).each do |num|
-          - progress = goal.progresses.find_by(date: num.days.ago)
-          td class=progress_class(progress) = progress_value(progress)
+        - progresses_for_last_week(goal).each do |progresses|
+          td class=progress_class(goal, progresses) = progress_value(progresses)
 
 br
 
-= link_to 'New Goal', new_goal_path
+= link_to 'New Goal', new_goal_path, class: 'button'
+| &nbsp;
+= link_to 'New Progress', new_progress_path, class: 'button'
